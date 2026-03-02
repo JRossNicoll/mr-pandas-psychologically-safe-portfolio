@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { useGLTF, Html } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
+import MeshHtmlOverlay from "../components/MeshHtmlOverlay";
 import "../../styles/overlay-cards.scss";
 
 import * as THREE from "three";
@@ -111,16 +112,9 @@ export default function Model({ scrollProgress, ...props }) {
         position={[8.405, 4.947, -2.744]}
         rotation={[Math.PI / 2, 0.023, 0]}
       >
-        <Html
-          transform
-          distanceFactor={1.5}
-          zIndexRange={[0, 0]}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "none" }}
-        >
+        <MeshHtmlOverlay geometry={nodes.Plane112.geometry}>
           <div className="overlay-heading">Socials & Contact</div>
-        </Html>
+        </MeshHtmlOverlay>
       </mesh>
       <mesh
         ref={firstJobRef}
@@ -131,16 +125,9 @@ export default function Model({ scrollProgress, ...props }) {
         onPointerEnter={() => (firstJobHovered.current = true)}
         onPointerLeave={() => (firstJobHovered.current = false)}
       >
-        <Html
-          transform
-          distanceFactor={1.5}
-          zIndexRange={[0, 0]}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "none" }}
-        >
+        <MeshHtmlOverlay geometry={nodes.Human_Resarcher.geometry}>
           <a
-            className="overlay-card social-card"
+            className="overlay-card overlay-card--fill social-card"
             href="https://x.com/yourhandle"
             target="_blank"
             rel="noopener noreferrer"
@@ -155,7 +142,7 @@ export default function Model({ scrollProgress, ...props }) {
               <span className="social-handle">@yourhandle</span>
             </div>
           </a>
-        </Html>
+        </MeshHtmlOverlay>
       </mesh>
       <mesh
         ref={secondJobRef}
@@ -166,16 +153,9 @@ export default function Model({ scrollProgress, ...props }) {
         onPointerEnter={() => (secondJobHovered.current = true)}
         onPointerLeave={() => (secondJobHovered.current = false)}
       >
-        <Html
-          transform
-          distanceFactor={1.5}
-          zIndexRange={[0, 0]}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "none" }}
-        >
+        <MeshHtmlOverlay geometry={nodes.Senior_Human_Researcher.geometry}>
           <a
-            className="overlay-card social-card"
+            className="overlay-card overlay-card--fill social-card"
             href="https://t.me/yourhandle"
             target="_blank"
             rel="noopener noreferrer"
@@ -190,7 +170,7 @@ export default function Model({ scrollProgress, ...props }) {
               <span className="social-handle">@yourhandle</span>
             </div>
           </a>
-        </Html>
+        </MeshHtmlOverlay>
       </mesh>
       <mesh
         geometry={nodes.Plane115.geometry}

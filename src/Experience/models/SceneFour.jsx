@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
-import { useGLTF, Html } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
+import MeshHtmlOverlay from "../components/MeshHtmlOverlay";
 import "../../styles/overlay-cards.scss";
 
 export default function Model(props) {
@@ -77,16 +78,9 @@ export default function Model(props) {
         position={[15.905, 4.474, -2.751]}
         rotation={[1.566, -0.053, -0.004]}
       >
-        <Html
-          transform
-          distanceFactor={1.5}
-          zIndexRange={[0, 0]}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "none" }}
-        >
+        <MeshHtmlOverlay geometry={nodes.Plane122.geometry}>
           <div className="overlay-heading">Tokenomics</div>
-        </Html>
+        </MeshHtmlOverlay>
       </mesh>
       <mesh
         geometry={nodes.Plane123.geometry}
@@ -103,15 +97,8 @@ export default function Model(props) {
         onPointerEnter={() => (firstPaperHovered.current = true)}
         onPointerLeave={() => (firstPaperHovered.current = false)}
       >
-        <Html
-          transform
-          distanceFactor={1.5}
-          zIndexRange={[0, 0]}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "none" }}
-        >
-          <div className="overlay-card tokenomics-card">
+        <MeshHtmlOverlay geometry={nodes.Plane125.geometry}>
+          <div className="overlay-card overlay-card--fill tokenomics-card">
             <h3>Token Overview</h3>
             <div className="token-row">
               <span className="token-label">Name</span>
@@ -130,7 +117,7 @@ export default function Model(props) {
               <span className="token-value">0 / 0</span>
             </div>
           </div>
-        </Html>
+        </MeshHtmlOverlay>
       </mesh>
       <mesh
         ref={secondPaperRef}
@@ -141,15 +128,8 @@ export default function Model(props) {
         onPointerEnter={() => (secondPaperHovered.current = true)}
         onPointerLeave={() => (secondPaperHovered.current = false)}
       >
-        <Html
-          transform
-          distanceFactor={1.5}
-          zIndexRange={[0, 0]}
-          position={[0, 0, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "none" }}
-        >
-          <div className="overlay-card tokenomics-card">
+        <MeshHtmlOverlay geometry={nodes.Plane126.geometry}>
+          <div className="overlay-card overlay-card--fill tokenomics-card">
             <h3>Allocation</h3>
             <div className="allocation-item">
               <span className="alloc-label">Liquidity Pool</span>
@@ -172,7 +152,7 @@ export default function Model(props) {
               <span className="alloc-value">5%</span>
             </div>
           </div>
-        </Html>
+        </MeshHtmlOverlay>
       </mesh>
       <mesh
         geometry={nodes.Plane127.geometry}
