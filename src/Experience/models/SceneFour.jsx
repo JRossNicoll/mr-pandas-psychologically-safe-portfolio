@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Html } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
+import "../../styles/overlay-cards.scss";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/scene_4.glb");
@@ -75,7 +76,18 @@ export default function Model(props) {
         material={scene_4}
         position={[15.905, 4.474, -2.751]}
         rotation={[1.566, -0.053, -0.004]}
-      />
+        visible={false}
+      >
+        <Html
+          transform
+          occlude={false}
+          position={[0, 0, 0.1]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          style={{ pointerEvents: "none" }}
+        >
+          <div className="overlay-heading">Tokenomics</div>
+        </Html>
+      </mesh>
       <mesh
         geometry={nodes.Plane123.geometry}
         material={scene_4}
@@ -88,18 +100,80 @@ export default function Model(props) {
         material={scene_4}
         position={[16.29, 3.282, firstPaperOriginalZ]}
         rotation={[Math.PI / 2, -0.007, 0]}
+        visible={false}
         onPointerEnter={() => (firstPaperHovered.current = true)}
         onPointerLeave={() => (firstPaperHovered.current = false)}
-      />
+      >
+        <Html
+          transform
+          occlude={false}
+          position={[0, 0, 0.1]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          style={{ pointerEvents: "auto" }}
+        >
+          <div className="overlay-card tokenomics-card">
+            <h3>Token Overview</h3>
+            <div className="token-row">
+              <span className="token-label">Name</span>
+              <span className="token-value">TOKEN_NAME</span>
+            </div>
+            <div className="token-row">
+              <span className="token-label">Supply</span>
+              <span className="token-value">1,000,000,000</span>
+            </div>
+            <div className="token-row">
+              <span className="token-label">Network</span>
+              <span className="token-value">Solana</span>
+            </div>
+            <div className="token-row">
+              <span className="token-label">Tax</span>
+              <span className="token-value">0 / 0</span>
+            </div>
+          </div>
+        </Html>
+      </mesh>
       <mesh
         ref={secondPaperRef}
         geometry={nodes.Plane126.geometry}
         material={scene_4}
         position={[17.918, 4.052, secondPaperOriginalZ]}
         rotation={[Math.PI / 2, -0.114, 0]}
+        visible={false}
         onPointerEnter={() => (secondPaperHovered.current = true)}
         onPointerLeave={() => (secondPaperHovered.current = false)}
-      />
+      >
+        <Html
+          transform
+          occlude={false}
+          position={[0, 0, 0.1]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          style={{ pointerEvents: "auto" }}
+        >
+          <div className="overlay-card tokenomics-card">
+            <h3>Allocation</h3>
+            <div className="allocation-item">
+              <span className="alloc-label">Liquidity Pool</span>
+              <span className="alloc-value">50%</span>
+            </div>
+            <div className="allocation-item">
+              <span className="alloc-label">Community</span>
+              <span className="alloc-value">20%</span>
+            </div>
+            <div className="allocation-item">
+              <span className="alloc-label">Team</span>
+              <span className="alloc-value">15%</span>
+            </div>
+            <div className="allocation-item">
+              <span className="alloc-label">Marketing</span>
+              <span className="alloc-value">10%</span>
+            </div>
+            <div className="allocation-item">
+              <span className="alloc-label">Reserve</span>
+              <span className="alloc-value">5%</span>
+            </div>
+          </div>
+        </Html>
+      </mesh>
       <mesh
         geometry={nodes.Plane127.geometry}
         material={scene_4}

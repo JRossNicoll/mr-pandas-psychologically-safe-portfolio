@@ -1,8 +1,9 @@
 import React, { useRef, useMemo } from "react";
-import { useGLTF, useKTX2 } from "@react-three/drei";
+import { useGLTF, useKTX2, Html } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import "../../styles/overlay-cards.scss";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/scene_1.glb");
@@ -274,18 +275,50 @@ export default function Model(props) {
         material={not_waterfall}
         position={[-17.941, 2.096, introOriginalZ]}
         rotation={[Math.PI / 2, 0.025, 0]}
+        visible={false}
         onPointerEnter={() => (introHovered.current = true)}
         onPointerLeave={() => (introHovered.current = false)}
-      />
+      >
+        <Html
+          transform
+          occlude={false}
+          position={[0, 0, 0.1]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          style={{ pointerEvents: "auto" }}
+        >
+          <div className="overlay-card">
+            <h2>{"Hello, I'm Mr. Panda"}</h2>
+            <p>
+              {"Welcome to my psychologically safe corner of the internet. I build things, break things, and occasionally remember to push to main."}
+            </p>
+          </div>
+        </Html>
+      </mesh>
       <mesh
         ref={aboutRef}
         geometry={nodes.about.geometry}
         material={not_waterfall}
         position={[-15.7, 1.987, aboutOriginalZ]}
         rotation={[Math.PI / 2, 0.025, 0]}
+        visible={false}
         onPointerEnter={() => (aboutHovered.current = true)}
         onPointerLeave={() => (aboutHovered.current = false)}
-      />
+      >
+        <Html
+          transform
+          occlude={false}
+          position={[0, 0, 0.1]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          style={{ pointerEvents: "auto" }}
+        >
+          <div className="overlay-card">
+            <h2>About Me</h2>
+            <p>
+              {"A curious panda with a passion for technology, design, and creating experiences that make people feel at home. Currently exploring the intersection of web3 and creative expression."}
+            </p>
+          </div>
+        </Html>
+      </mesh>
       <mesh
         ref={waterfall}
         geometry={nodes.Waterfall001.geometry}
