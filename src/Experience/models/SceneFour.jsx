@@ -76,12 +76,12 @@ export default function Model(props) {
         material={scene_4}
         position={[15.905, 4.474, -2.751]}
         rotation={[1.566, -0.053, -0.004]}
-        visible={false}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
           style={{ pointerEvents: "none" }}
         >
@@ -100,16 +100,16 @@ export default function Model(props) {
         material={scene_4}
         position={[16.29, 3.282, firstPaperOriginalZ]}
         rotation={[Math.PI / 2, -0.007, 0]}
-        visible={false}
         onPointerEnter={() => (firstPaperHovered.current = true)}
         onPointerLeave={() => (firstPaperHovered.current = false)}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "none" }}
         >
           <div className="overlay-card tokenomics-card">
             <h3>Token Overview</h3>
@@ -138,16 +138,16 @@ export default function Model(props) {
         material={scene_4}
         position={[17.918, 4.052, secondPaperOriginalZ]}
         rotation={[Math.PI / 2, -0.114, 0]}
-        visible={false}
         onPointerEnter={() => (secondPaperHovered.current = true)}
         onPointerLeave={() => (secondPaperHovered.current = false)}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "none" }}
         >
           <div className="overlay-card tokenomics-card">
             <h3>Allocation</h3>

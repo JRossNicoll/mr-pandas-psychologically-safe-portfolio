@@ -110,12 +110,12 @@ export default function Model({ scrollProgress, ...props }) {
         material={scene_3}
         position={[8.405, 4.947, -2.744]}
         rotation={[Math.PI / 2, 0.023, 0]}
-        visible={false}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
           style={{ pointerEvents: "none" }}
         >
@@ -128,23 +128,22 @@ export default function Model({ scrollProgress, ...props }) {
         material={scene_3}
         position={[8.363, 3.436, firstJobOriginalZ]}
         rotation={[Math.PI / 2, 0.073, 0]}
-        visible={false}
         onPointerEnter={() => (firstJobHovered.current = true)}
         onPointerLeave={() => (firstJobHovered.current = false)}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "none" }}
         >
           <a
             className="overlay-card social-card"
             href="https://x.com/yourhandle"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "flex", textDecoration: "none", color: "inherit" }}
           >
             <div className="social-icon social-icon--x">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -164,23 +163,22 @@ export default function Model({ scrollProgress, ...props }) {
         material={scene_3}
         position={[10.062, 3.516, secondJobOriginalZ]}
         rotation={[Math.PI / 2, -0.127, 0]}
-        visible={false}
         onPointerEnter={() => (secondJobHovered.current = true)}
         onPointerLeave={() => (secondJobHovered.current = false)}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "none" }}
         >
           <a
             className="overlay-card social-card"
             href="https://t.me/yourhandle"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "flex", textDecoration: "none", color: "inherit" }}
           >
             <div className="social-icon social-icon--telegram">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

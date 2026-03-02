@@ -275,16 +275,16 @@ export default function Model(props) {
         material={not_waterfall}
         position={[-17.941, 2.096, introOriginalZ]}
         rotation={[Math.PI / 2, 0.025, 0]}
-        visible={false}
         onPointerEnter={() => (introHovered.current = true)}
         onPointerLeave={() => (introHovered.current = false)}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "none" }}
         >
           <div className="overlay-card">
             <h2>{"Hello, I'm Mr. Panda"}</h2>
@@ -300,16 +300,16 @@ export default function Model(props) {
         material={not_waterfall}
         position={[-15.7, 1.987, aboutOriginalZ]}
         rotation={[Math.PI / 2, 0.025, 0]}
-        visible={false}
         onPointerEnter={() => (aboutHovered.current = true)}
         onPointerLeave={() => (aboutHovered.current = false)}
       >
         <Html
           transform
-          occlude={false}
-          position={[0, 0, 0.1]}
+          distanceFactor={1.5}
+          zIndexRange={[0, 0]}
+          position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
-          style={{ pointerEvents: "auto" }}
+          style={{ pointerEvents: "none" }}
         >
           <div className="overlay-card">
             <h2>About Me</h2>
